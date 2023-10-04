@@ -3,33 +3,53 @@ function Meaning({ data }) {
   console.log("Received data in meaning component:", data);
 
   return (
-    <div className="mx-96">
+    <div className="ml-96 mr-32">
       {data.meanings && (
         <>
           {/* you need the element of the array in the callback function to use a map method and sometimes the index*/}
           {data.meanings.map((meaning) => (
             <>
               <div>
-                <h2>{meaning.partOfSpeech} </h2>
-                <p>Meaning</p>
+                <h2 className=" mb-3 text-slate-950 font-bold">
+                  {meaning.partOfSpeech}{" "}
+                </h2>
+                <p class="border-b border-gray-400"></p>
+                <p className=" mb-3 text-slate-400  ">Meaning</p>
                 {meaning.definitions.map((definition) => (
                   <>
-                    <h2>{definition.definition} </h2>
-                    {definition.example && <h2>{definition.example}</h2>}
+                    <h2 className=" mb-2 mx-4">{definition.definition} </h2>
+                    {definition.example && (
+                      <h2 className="mx-4  text-slate-400">
+                        {definition.example}
+                      </h2>
+                    )}
                   </>
                 ))}
               </div>
               {meaning.synonyms.length > 0 && (
-                <div>
-                  <p>Synonyms</p>
-                  <h2>{meaning.synonyms[0]}</h2>
+                <div className="relative mb-4 ">
+                  <p
+                    className=" text-slate-400
+              ">
+                    Synonyms
+                  </p>
+                  <div>
+                    <h2 className="absolute bottom-0 left-20 text-violet-700 font-medium ">
+                      {meaning.synonyms[0]}
+                    </h2>
+                  </div>
                 </div>
               )}
             </>
           ))}
 
-          <div>
-            <p>{data.sourceUrls[0]}</p>
+          <div className="relative mt-4">
+            <p class="border-b border-gray-400 mb-3"></p>
+
+            <p className=" text-slate-400 font-thin">Source</p>
+            <div>
+              <p className="absolute bottom-0 left-16 ">{data.sourceUrls[0]}</p>
+            </div>
           </div>
         </>
       )}
