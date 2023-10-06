@@ -3,17 +3,19 @@ function Meaning({ data }) {
   console.log("Received data in meaning component:", data);
 
   return (
-    <div className="ml-96 mr-32">
+    <div>
       {data.meanings && (
         <>
           {/* you need the element of the array in the callback function to use a map method and sometimes the index*/}
           {data.meanings.map((meaning) => (
             <>
               <div>
-                <h2 className=" mb-3 text-slate-950 font-bold">
-                  {meaning.partOfSpeech}{" "}
-                </h2>
-                <p class="border-b border-gray-400"></p>
+                <div className="flex items-center">
+                  <h2 className="mb-3 text-slate-950 font-bold">
+                    {meaning.partOfSpeech}{" "}
+                  </h2>
+                  <p className="border-b border-gray-400 grow ml-2"></p>
+                </div>
                 <p className=" mb-3 text-slate-400  ">Meaning</p>
                 {meaning.definitions.map((definition) => (
                   <>
@@ -44,7 +46,7 @@ function Meaning({ data }) {
           ))}
 
           <div className="relative mt-4">
-            <p class="border-b border-gray-400 mb-3"></p>
+            <p className="border-b border-gray-400 mb-3"></p>
 
             <p className=" text-slate-400 font-thin">Source</p>
             <div>

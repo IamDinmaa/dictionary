@@ -3,6 +3,8 @@ import Search from "./Components/Search";
 import Meaning from "./Components/Meaning";
 import { fetch_words } from "./API/GetWords";
 import Word from "./Components/Word";
+import ToggleTheme from "./Components/ToggleTheme";
+import FontSelector from "./Components/Fonts";
 
 
 function App() {
@@ -22,8 +24,12 @@ function App() {
    }
   }
   return (
-  
-     <div>
+    
+     <div style={{marginLeft: "auto" , marginRight: "auto",  width: "50%" }}>
+      <div>
+      <FontSelector/>
+      <ToggleTheme/>
+      </div>
         <Search callback={fetch_data} />
         {
           loading ? (
@@ -42,12 +48,8 @@ function App() {
             </>
           )
         }
-      
           </div>
-    
-    
-    
-   
+  
   );
 }
 

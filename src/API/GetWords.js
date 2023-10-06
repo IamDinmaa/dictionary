@@ -3,6 +3,7 @@ export async function fetch_words(word) {
   try {
     const response = await fetch(dictionaryApi);
     const data = await response.json();
+    // const audio = data.phonetics[0].audio
     return data;
   } catch (error) {
     console.error("Error fetching data:", error);

@@ -1,7 +1,7 @@
 import React from "react";
 function Word({ data }) {
   return (
-    <div className="mx-96 mb-4">
+    <div className="mb-4">
       {data.meanings && (
         <>
           {" "}

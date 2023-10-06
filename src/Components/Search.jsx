@@ -5,7 +5,7 @@ function Search({ callback }) {
   const [word, setWord] = useState("");
   const [icon, setIcon] = useState("search");
   function handleKeyDown(e) {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && word) {
       callback(word);
       setIcon("cancel");
     }
@@ -16,7 +16,7 @@ function Search({ callback }) {
       setWord("");
       setIcon("search");
     }
-    if (icon === "search") {
+    if (icon === "search" && word) {
       callback(word);
     }
   }
@@ -26,17 +26,17 @@ function Search({ callback }) {
   }
   return (
     <>
-      <div className="ml-96">
-        <div className="relative inline-block mb-4 mt-5">
+      <div>
+        <div className="relative inline-block mb-4 mt-5 ml-20 ">
           <input
             onKeyDown={handleKeyDown}
             onChange={handleChange}
             value={word}
             placeholder="Search a word"
-            className="border-solid border-5 rounded-3xl bg-slate-100	w-96 px-2 placeholder-slate-950 font-bold"
+            className="border-solid focus:outline-none border-5 rounded-lg bg-slate-100	w-96 px-2 p-2 placeholder-slate-950 font-bold "
           />{" "}
           <button
-            className="absolute top-0 right-0 translate-y-1 cursor-pointer text-violet-600"
+            className="absolute top-2.5 right-3 translate-y-1 cursor-pointer text-violet-600"
             onClick={handleIconClick}>
             {icon === "search" ? <AiOutlineSearch /> : <LiaTimesSolid />}
           </button>

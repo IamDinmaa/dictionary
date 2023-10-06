@@ -6,7 +6,13 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    function ({addBase, theme}) {
+      addBase ({
+        
+      })
+    }
+  ],
 }
 
 
