@@ -42,6 +42,7 @@ function App() {
                 
         <Word data ={data}/>
         <Meaning data={data}/>
+
                 </>
               )
             }
