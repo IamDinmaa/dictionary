@@ -10,9 +10,15 @@ function FontSelector() {
   return (
     <div>
       <select value={selectedFont} onChange={handleFontChange}>
-        <option value="serif">Serif</option>
-        <option value="sans-serif">Sans-serif</option>
-        <option value="monospace">Monospace</option>
+        <option style={{ fontFamily: "serif" }} value="serif">
+          Serif
+        </option>
+        <option style={{ fontFamily: "sans-serif" }} value="sans-serif">
+          sans-serif
+        </option>
+        <option style={{ fontFamily: "monospace" }} value="monospace">
+          Monospace
+        </option>
       </select>
     </div>
   );
