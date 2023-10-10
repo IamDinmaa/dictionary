@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Search from "./Components/Search";
 import Meaning from "./Components/Meaning";
 import { fetch_words } from "./API/GetWords";
@@ -10,6 +10,8 @@ function App() {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
   const [searchInitiated, setSearchInitiated] = useState(false);
+  const [themeColor, setThemeColor] = useState('light')
+  
 
   async function fetch_data(word) {
     try {
@@ -22,6 +24,23 @@ function App() {
       console.log(error);
     }
   }
+  function updateTheme () {
+  themeColor === "light" ? setThemeColor("dark") : setThemeColor("light")
+  }
+
+  useEffect (()=> {
+themeColor === 'light' ? document.body.classList.add ("bg-white", "text-black") : document.body.classList.add ("bg-black", "text-white")
+if (themeColor === 'light') {
+  document.body.classList.remove("bg-black", "text-white")
+  document.body.classList.add("bg-white", "text-black")
+} else {
+  document.body.classList.remove("bg-white", "text-black")
+  document.body.classList.add("bg-black", "text-white")
+}
+console.log(themeColor)
+
+  }, [themeColor])
+  
   return (
     <div
       style={{
@@ -30,14 +49,15 @@ function App() {
         width: "40%",
         marginTop: "1%",
         marginBottom: "1%",
+     
       }}
     >
       <div className="flex justify-end">
-        <FontSelector />
+        <FontSelector theme = {themeColor}/>
         <p className="border-l border-gray-400  ml-3 mr-3"></p>
-        <ToggleTheme />
+        <ToggleTheme onToggle = {updateTheme} />
       </div>
-      <Search callback={fetch_data} />
+      <Search callback={fetch_data} theme = {themeColor} />
       {loading ? (
         <p className="mt-18 font-bold text-2xl">Loading...</p>
       ) : (

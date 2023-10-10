@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { LiaTimesSolid } from "react-icons/lia";
-function Search({ callback }) {
+function Search({ callback, theme }) {
   const [word, setWord] = useState("");
   const [icon, setIcon] = useState("search");
   function handleKeyDown(e) {
@@ -31,12 +31,13 @@ function Search({ callback }) {
         onChange={handleChange}
         value={word}
         placeholder="Search a word"
-        className="border-solid focus:outline-none border-5 rounded-lg w-full bg-slate-100 px-2 p-2 placeholder-slate-950 font-bold "
+        className={`border-solid focus:outline-none border-5 rounded-lg w-full ${
+          theme === "light" ? "bg-slate-100" : "bg-slate-700 text-black"
+        }  px-2 p-2 placeholder-slate-950 font-bold `}
       />{" "}
       <button
         className="absolute top-2.5 right-3 translate-y-1 cursor-pointer text-violet-600"
-        onClick={handleIconClick}
-      >
+        onClick={handleIconClick}>
         {icon === "search" ? <AiOutlineSearch /> : <LiaTimesSolid />}
       </button>
     </div>

@@ -1,28 +1,26 @@
 import React, { useState } from "react";
 import { BsMoon, BsFillSunFill } from "react-icons/bs";
 
-function ToggleTheme() {
+function ToggleTheme({ onToggle }) {
   const [darkMode, setDarkMode] = useState(false);
 
   function themeToggle() {
     setDarkMode(!darkMode);
+    onToggle();
+
     // document.body.classList.toggle("dark-mode");
   }
   return (
     <div className="flex">
       <div
-        className={`relative inline-block w-11 h-5 ${
-          darkMode ? "bg-gray-700" : "bg-blue-500"
-        } rounded-full flex`}
-      >
+        className={`relative w-11 h-5 ${
+          darkMode ? "bg-violet-700" : "bg-gray-700"
+        } rounded-full flex`}>
         <label
-          className={`block h-4 w-4 relative top-0.5 ml-0.5 mr-0.5 ${
-            darkMode ? "bg-white" : "bg-black"
-          } rounded-full shadow-md transform duration-300 ease-in-out ${
+          className={`h-4 w-4 relative top-0.5 ml-0.5 mr-0.5 bg-white rounded-full transform duration-300 ease-in-out ${
             darkMode ? "translate-x-6" : ""
           }`}
-          htmlFor="toggle"
-        >
+          htmlFor="toggle">
           <input
             type="checkbox"
             id="toggle"

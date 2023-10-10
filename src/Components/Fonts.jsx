@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function FontSelector() {
+function FontSelector({ theme }) {
   const [selectedFont, setSelectedFont] = useState("serif");
 
   const handleFontChange = (e) => {
@@ -9,7 +9,10 @@ function FontSelector() {
 
   return (
     <div>
-      <select value={selectedFont} onChange={handleFontChange}>
+      <select
+        value={selectedFont}
+        onChange={handleFontChange}
+        className={`${theme === "light" ? "bg-white" : "bg-black text-white"}`}>
         <option style={{ fontFamily: "serif" }} value="serif">
           Serif
         </option>
