@@ -21,8 +21,8 @@ function FontSelector({ theme, fontToggle }) {
         <option style={{ fontFamily: "sans-serif" }} value="sans-serif">
           sans-serif
         </option>
-        <option style={{ fontFamily: "mono" }} value="mono">
-          Mono
+        <option style={{ fontFamily: "monospace" }} value="mono">
+          Monospace
         </option>
       </select>
     </div>
