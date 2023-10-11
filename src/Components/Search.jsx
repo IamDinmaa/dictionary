@@ -25,7 +25,7 @@ function Search({ callback, theme }) {
     setWord(e.target.value);
   }
   return (
-    <div className="relative mb-4 mt-5 ml-1">
+    <div className="relative mb-4 mt-5 ml-1 sm:ml-0">
       <input
         onKeyDown={handleKeyDown}
         onChange={handleChange}

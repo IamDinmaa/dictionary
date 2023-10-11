@@ -1,4 +1,6 @@
 import React from "react";
+import AudioPlayer from "./AudioPlayer";
+
 function Word({ data }) {
   return (
     <div className="mb-4">
@@ -15,6 +17,7 @@ function Word({ data }) {
           <div>
             <p className=" text-violet-700 font-medium">{data.phonetic}</p>
           </div>
+          <AudioPlayer />
         </>
       )}
     </div>

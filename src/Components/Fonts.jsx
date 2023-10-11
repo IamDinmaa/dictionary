@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 
-function FontSelector({ theme }) {
+function FontSelector({ theme, fontToggle }) {
   const [selectedFont, setSelectedFont] = useState("serif");
 
   const handleFontChange = (e) => {
-    setSelectedFont(e.target.value);
+    const font = e.target.value;
+    setSelectedFont(font);
+    fontToggle(font);
   };
 
   return (
@@ -19,8 +21,8 @@ function FontSelector({ theme }) {
         <option style={{ fontFamily: "sans-serif" }} value="sans-serif">
           sans-serif
         </option>
-        <option style={{ fontFamily: "monospace" }} value="monospace">
-          Monospace
+        <option style={{ fontFamily: "mono" }} value="mono">
+          Mono
         </option>
       </select>
     </div>

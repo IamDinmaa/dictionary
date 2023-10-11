@@ -11,6 +11,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [searchInitiated, setSearchInitiated] = useState(false);
   const [themeColor, setThemeColor] = useState('light')
+  const [selectedFont, setSelectedFont] = useState("serif")
   
 
   async function fetch_data(word) {
@@ -28,6 +29,10 @@ function App() {
   themeColor === "light" ? setThemeColor("dark") : setThemeColor("light")
   }
 
+  function fontChange (font) {
+ setSelectedFont(font)
+  }
+
   useEffect (()=> {
 themeColor === 'light' ? document.body.classList.add ("bg-white", "text-black") : document.body.classList.add ("bg-black", "text-white")
 if (themeColor === 'light') {
@@ -40,20 +45,13 @@ if (themeColor === 'light') {
 console.log(themeColor)
 
   }, [themeColor])
+
   
   return (
-    <div
-      style={{
-        marginLeft: "auto",
-        marginRight: "auto",
-        width: "40%",
-        marginTop: "1%",
-        marginBottom: "1%",
-     
-      }}
+    <div className="ml-auto mr-auto mt-2 mb-2 w-5/6 sm:w-5/6 lg:w-2/5 xl:w-5/5 " style={{fontFamily: selectedFont}}
     >
       <div className="flex justify-end">
-        <FontSelector theme = {themeColor}/>
+        <FontSelector theme = {themeColor} fontToggle = {fontChange}/>
         <p className="border-l border-gray-400  ml-3 mr-3"></p>
         <ToggleTheme onToggle = {updateTheme} />
       </div>
