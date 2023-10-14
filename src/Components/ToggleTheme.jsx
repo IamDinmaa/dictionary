@@ -14,7 +14,7 @@ function ToggleTheme({ onToggle }) {
     <div className="flex">
       <div
         className={`relative w-11 h-5 ${
-          darkMode ? "bg-violet-700" : "bg-gray-700"
+          darkMode ? "bg-purple-700" : "bg-gray-700"
         } rounded-full flex`}>
         <label
           className={`h-4 w-4 relative top-0.5 ml-0.5 mr-0.5 bg-white rounded-full transform duration-300 ease-in-out ${

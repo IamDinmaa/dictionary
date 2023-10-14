@@ -15,14 +15,14 @@ function FontSelector({ theme, fontToggle }) {
         value={selectedFont}
         onChange={handleFontChange}
         className={`${theme === "light" ? "bg-white" : "bg-black text-white"}`}>
-        <option style={{ fontFamily: "serif" }} value="serif">
+        <option className="font-serif" value="serif">
           Serif
         </option>
-        <option style={{ fontFamily: "sans-serif" }} value="sans-serif">
+        <option className="font-sans" value="sans">
           sans-serif
         </option>
-        <option style={{ fontFamily: "monospace" }} value="mono">
-          Monospace
+        <option className="font-mono" value="mono">
+          Mono
         </option>
       </select>
     </div>

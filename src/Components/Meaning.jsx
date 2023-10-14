@@ -7,9 +7,9 @@ function Meaning({ data }) {
       {data.meanings && (
         <>
           {/* you need the element of the array in the callback function to use a map method and sometimes the index*/}
-          {data.meanings.map((meaning) => (
+          {data.meanings.map((meaning, index) => (
             <>
-              <div>
+              <div key={index}>
                 <div className="flex items-center">
                   <h2 className="mb-3 text-slate-950 font-bold">
                     {meaning.partOfSpeech}{" "}
@@ -36,7 +36,7 @@ function Meaning({ data }) {
                     Synonyms
                   </p>
                   <div>
-                    <h2 className="absolute bottom-0 left-20 text-violet-700 font-medium ">
+                    <h2 className="absolute bottom-0 left-20 text-purple-700 font-medium ">
                       {meaning.synonyms[0]}
                     </h2>
                   </div>

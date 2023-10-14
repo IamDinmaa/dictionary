@@ -48,7 +48,7 @@ console.log(themeColor)
 
   
   return (
-    <div className="ml-auto mr-auto mt-2 mb-2 w-5/6 sm:w-5/6 lg:w-2/5 xl:w-5/5 " style={{fontFamily: selectedFont}}
+    <div className={`ml-auto mr-auto mt-2 mb-2  w-5/6 lg:w-2/5 xl:w-5/5 font-${selectedFont}` }
     >
       <div className="flex justify-end">
         <FontSelector theme = {themeColor} fontToggle = {fontChange}/>

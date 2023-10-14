@@ -1,21 +1,19 @@
 import React from "react";
-import { BsPlay } from "react-icons/bs";
+import { BsFillPlayFill } from "react-icons/bs";
 
-function AudioPlayer({ data }) {
+function AudioPlayer({ audioFile }) {
   const playMusic = () => {
-    const audio = new Audio(data.phonetics[0].audio);
+    const audio = new Audio(audioFile);
     audio.play();
   };
 
   return (
     <>
-      <div>
-        <button
-          className="rounded-full border-violet-700 flex-row-reverse"
-          onClick={playMusic}>
-          <BsPlay />
-        </button>
-      </div>
+      <button
+        onClick={playMusic}
+        className="bg-purple-200 rounded-full w-14 h-14 flex justify-center items-center mt-2">
+        <BsFillPlayFill className="  text-purple-500 w-7 h-7" />
+      </button>
     </>
   );
 }
